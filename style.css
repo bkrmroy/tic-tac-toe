@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.content{
+    background-color:antiquewhite;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+}
+.header{
+    padding: 32px;
+}
+.header-text{
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+.game-block{
+    border: 2px solid white;
+}
+.game-block:hover{
+    scale: 0.95;
+    background-color: rgb(243, 223, 194);
+}
+.game-board{
+    border: 5px solid rgb(243, 223, 194);
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+}
+.game-info{
+    display: flex;
+    gap: 32px;
+    padding: 8px;
+    font-size: 1.5rem;
+}
