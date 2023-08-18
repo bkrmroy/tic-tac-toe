@@ -12,7 +12,16 @@
     <div class="header">
         <div class="header-text">Tic Tac Toe</div>
     </div>
-
+    <div class="dialog-box">
+        <div class="form-header" >
+            <div class="form-title">Let's start!</div>
+        </div>
+        <form action="#" class="start-form">
+            <input type="text" required id="player-one" name="player-one" placeholder="Player one name">
+            <input type="text" required id="player-two" name="player-two" placeholder="Player two name">
+            <button type="submit" class="btn-start">GO</button>
+        </form>
+    </div>
     <div class="content">
         <div class='game-info'>
             <div class="player-one-text">Player One: X</div>
@@ -37,6 +46,14 @@
         </div>
         
     </div>
-
+    <div class="overlay"></div>
+    <div class="dialog-restart">
+        <div class="restart-text">Are you sure you want to restart the game?</div>
+        <div class="btn-section">
+            <button class="yes">Yes</button>
+            <button class="no">No</button>
+        </div>
+    </div>
+    <div class="overlay-2"></div>
 </body>
 </html>

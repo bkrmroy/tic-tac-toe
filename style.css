@@ -47,3 +47,116 @@ body{
     font-size: 1.5rem;
 }
 
+.dialog-box{
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 10;
+    background-color: white;
+    width: 200px;
+    transition: 200ms ease-in-out;
+}
+.dialog-box.inactive{
+    transform: translate(-50%, -50%) scale(0);
+}
+.form-header{
+    display: flex;
+    padding: 8px 16px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.form-close{
+    outline: none;
+    border: none;
+    background: none;
+    color: black;
+    font-weight: bold;
+}
+.start-form input{
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid  var(--secondary-color);
+    outline: none;
+    border: 1px solid rgb(182, 169, 153)
+}
+.start-form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0px 16px 8px 16px;
+}
+.overlay{
+    position: fixed;
+    opacity: 1;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(209, 176, 132);
+    pointer-events: none;
+}
+.overlay.inactive{
+    scale: 0;
+}
+button{
+    all: unset;
+    text-align: center;
+    background-color: rgb(209, 176, 132);
+    color: white;
+    padding: 8px 16px 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    height: fit-content;
+}
+button:hover{
+    scale: 1.05;
+}
+.dialog-restart{
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 8px 16px;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+    background-color: white;
+    width: 200px;
+}
+.dialog-restart.active{
+    transform: translate(-50%, -50%) scale(1);
+    transition: 200ms ease-in-out;
+}
+.dialog-restart .restart-text{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.btn-section > button{
+    width: 40%;
+}
+.btn-section{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+.overlay-2{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+.overlay-2.active{
+    opacity: 1;
+}
