@@ -27,4 +27,12 @@ const gameBoard = (()=>{
     return {updateGameArray1, updateGameArray2, getArrayItem, resetGameArray}
 })()
 
+const player = (name,value)=>{
+    const getName = () => name
+    const getValue  = () => value;
+    return {getName, getValue}
+}
+window.player1 = player(player1name, 'X')
+window.player2 = player(player2name, 'O')
+
 
