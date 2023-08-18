@@ -160,3 +160,29 @@ button:hover{
 .overlay-2.active{
     opacity: 1;
 }
+
+.result{
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+    background-color: white;
+    width: 200px;
+    transition: 200ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px;
+    align-items: center;
+}
+.result.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+.result-text{
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}

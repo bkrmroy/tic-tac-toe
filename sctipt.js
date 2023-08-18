@@ -60,9 +60,18 @@ const checkWinner = ()=>{
     let newArrayItem
     function checkForMatches(arr){
         if(arr.every((item) => item !== '') && arr.every((item) => item === arr[0])){
-            arr[0] === player1.getValue() ? alert(`${player1.getName()} has won the game`): null;
-            arr[0] === player2.getValue() ? alert(`${player2.getName()} has won the game`): null;
-  
+
+            if(arr[0] === player1.getValue()){
+                document.querySelector(".result").classList.add("active")
+                document.querySelector(".overlay-2").classList.add('active')
+                document.querySelector(".result-text").textContent = `${player1.getName()} has won the game`
+            }
+            if(arr[0] === player2.getValue()){
+                document.querySelector(".result").classList.add("active")
+                document.querySelector(".overlay-2").classList.add('active')
+                document.querySelector(".result-text").textContent = `${player2.getName()} has won the game`
+            }
+
             gameBlock.forEach(item=>{
                 item.removeEventListener("click", gameController.draw)
             })
@@ -148,3 +157,7 @@ const checkWinner = ()=>{
   })
   restartButton.addEventListener('click', restart)
   
+document.querySelector(".result-ok").addEventListener('click',()=>{
+    document.querySelector(".overlay-2").classList.remove('active')
+    document.querySelector(".result").classList.remove("active")
+})
