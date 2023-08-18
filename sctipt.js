@@ -35,4 +35,26 @@ const player = (name,value)=>{
 window.player1 = player(player1name, 'X')
 window.player2 = player(player2name, 'O')
 
+const gameController = (()=>{
+    let turn = 1
+    const draw = (event)=>{
+        let specificBlock = event.target
+        if(specificBlock.textContent === ''){
+            if(turn % 2 !== 0){
+                specificBlock.textContent = player1.getValue()
+                gameBoard.updateGameArray1(specificBlock.dataset.index)
+            }
+            else{
+                specificBlock.textContent = player2.getValue()
+                gameBoard.updateGameArray2(specificBlock.dataset.index)
+            }
+            turn += 1
+            checkWinner()
+        }
+    }
+    resetTurn = ()=>{
+        turn = 1
+    }
+    return{draw, resetTurn}
+})()
 
