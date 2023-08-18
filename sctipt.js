@@ -32,8 +32,8 @@ const player = (name,value)=>{
     const getValue  = () => value;
     return {getName, getValue}
 }
-window.player1 = player(player1name, 'X')
-window.player2 = player(player2name, 'O')
+  window.player1 = player(player1name, 'X')
+  window.player2 = player(player2name, 'O')
 
 const gameController = (()=>{
     let turn = 1
@@ -58,3 +58,56 @@ const gameController = (()=>{
     return{draw, resetTurn}
 })()
 
+const checkWinner = ()=>{
+    let newArrayItem
+    function checkForMatches(arr){
+        if(arr.every((item) => item !== '') && arr.every((item) => item === arr[0])){
+            arr[0] === player1.getValue() ? alert(`${player1.getName()} has won the game`): null;
+            arr[0] === player2.getValue() ? alert(`${player2.getName()} has won the game`): null;
+  
+            gameBlock.forEach(item=>{
+                item.removeEventListener("click", gameController.draw)
+            })
+        }
+    }
+    const checkRows = (()=>{
+        let rowArray = [[],[],[]]
+        for(j=0;j<3;j++){
+            for(i = (j+2*j); i < 3*(j+1); i++){
+                newArrayItem = gameBoard.getArrayItem(i)
+                rowArray[j].push(newArrayItem)
+            }
+        }
+        rowArray.forEach(array => {
+            checkForMatches(array)
+        })
+    })()
+    const checkColumns = (()=>{
+        let columnArray = [[],[],[]]
+        for(j=0;j<3;j++){
+            for(i = j; i < 9; i += 3){
+                newArrayItem = gameBoard.getArrayItem(i)
+                columnArray[j].push(newArrayItem)
+            }
+        }
+        columnArray.forEach(array =>{
+            checkForMatches(array)
+        })
+    })()
+    const checkDiagonals = (()=>{
+        let diagonalArray = [[],[]]
+        for(i=0; i<9 ; i+=4){
+            newArrayItem = gameBoard.getArrayItem(i)
+            diagonalArray[0].push(newArrayItem)
+        }
+        for(i=2;i<7;i+=2){
+            newArrayItem = gameBoard.getArrayItem(i)
+            diagonalArray[1].push(newArrayItem)
+        }
+        diagonalArray.forEach(array =>{
+            checkForMatches(array)
+        })
+    })()
+  }
+
+  
