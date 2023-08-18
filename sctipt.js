@@ -32,8 +32,6 @@ const player = (name,value)=>{
     const getValue  = () => value;
     return {getName, getValue}
 }
-  window.player1 = player(player1name, 'X')
-  window.player2 = player(player2name, 'O')
 
 const gameController = (()=>{
     let turn = 1
@@ -109,5 +107,44 @@ const checkWinner = ()=>{
         })
     })()
   }
-
+  const start = ()=>{
+    const player1name = document.getElementById('player-one').value
+    const player2name = document.getElementById('player-two').value
+    window.player1 = player(player1name, 'X')
+    window.player2 = player(player2name, 'O')
+    document.querySelector('.player-one-text').textContent = `${player1name}: X`
+    document.querySelector('.player-two-text').textContent = `${player2name}: O`
+    gameBlock.forEach(item=>{
+        item.addEventListener("click", gameController.draw)
+    })
+  }
+  const restart = ()=>{
+    document.querySelector(".dialog-restart").classList.add('active')
+    document.querySelector(".overlay-2").classList.add('active')
+  
+    document.querySelector('.no').addEventListener('click',()=>{
+        document.querySelector(".dialog-restart").classList.remove('active')
+        document.querySelector(".overlay-2").classList.remove('active')
+    })
+    document.querySelector('.yes').addEventListener('click',()=>{
+        document.querySelector(".dialog-restart").classList.remove('active')
+        document.querySelector(".overlay-2").classList.remove('active')
+  
+        gameBoard.resetGameArray()
+        gameController.resetTurn()
+        gameBlock.forEach(item =>{
+            item.textContent = ''
+        })
+        start()
+    })
+  }
+  startButton.addEventListener('click', function(event){
+    event.preventDefault()
+    if(form.checkValidity()){
+        start()
+        overlay.classList.add('inactive')
+        dialogBox.classList.add('inactive')
+    }
+  })
+  restartButton.addEventListener('click', restart)
   
